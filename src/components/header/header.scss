@@ -1,0 +1,236 @@
+@import "../header/_mediaQueryHeader.scss";
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+}
+
+$extColorWhite: #ffffff;
+
+@mixin header($size:1.7em) {
+    color: $extColorWhite;
+    font-size: $size;
+    font-family: 'Lucida Console', "Lucida Console", serif;
+}
+
+html {
+    font-size: 65%;
+
+    @include respond(tab-land) {
+        font-size: 58%;
+    }
+    @include respond(tab-port) {
+        font-size: 52%;
+    }
+    @include respond(phone) {
+        font-size: 32%;
+    }
+    @include respond(big-desktop) {
+        font-size: 80%;
+    }
+}
+
+.backgroundPicture {
+    height: 90vh;
+    background-image: linear-gradient(to right, rgba(178, 178, 178, 0.1), rgba(178, 178, 178, 0.4)), url(desk.png);
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    overflow: hidden;
+    @media(max-width:75em) {
+        height: 80vh;
+    }
+    @media(max-width:56.25em) {
+        height: 50vh;
+    }
+    @media(max-width:37.5em) {
+        height: 40vh;
+    }
+    .headerMenu {
+        position: absolute;
+        top: 4rem;
+        left: 20rem;
+        animation: moveInVisibility 1s;
+        .logo {
+            height: 3.5rem;
+            margin-left: -12rem;
+        }
+        ul {
+            position: absolute;
+            top: 1rem;
+            left: -7rem;
+            display: flex;
+            @media(min-width:1800px) {
+                left: -3rem;
+            }
+            /*@media (max-width:600px){
+                display: block;
+                width: 100%;
+                width: auto;
+            }*/
+            li {
+                color: $extColorWhite;
+                display: inline-block;/*
+                @media (max-width:600px){
+                    display: block;
+                    width: 100%;
+                    width: auto;
+                } */
+            }
+            a {/*
+                @media (max-width:600px){
+                    display: inline;
+                    font-size: 500%;
+                    width: 100%;
+                }*/
+                text-decoration: none;
+                @include header($size: 0.9em);
+                display: block;
+                &:hover {
+                    transform: translateY(3px);
+                    box-shadow: 0 2rem 3rem rgba(0, 0, 0, .2);
+                }
+                &:active {
+                    transform: translateY(1px);
+                    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+                }
+            }
+            .left {
+                margin-left: 3.5rem;
+            }
+        }
+    }
+}
+
+.centreButton {
+    position: relative;
+    left: 1rem;
+    top: 3rem;
+}
+
+.centreText {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+}
+
+h1 {
+    @include header; 
+    animation: moveInLeft 1s;
+}
+
+h2 {
+    display: block;
+    margin-bottom: 2rem;
+    text-align:center;
+    @include header($size: 1.2em);
+    animation: moveInRight 1s;
+}
+
+@mixin line {
+    border-top: .2rem solid $extColorWhite;
+    width: 10rem;
+    position: relative;
+}
+
+.hrLeft {
+    @include line;
+    left: 7%;
+    margin-top: 2rem;
+}
+
+.hrRight {
+    @include line;
+    left: 62%;
+    margin-top: -2.5rem;
+    @media(max-width:75em) {
+        margin-top: -2.5rem;
+    }
+    @media(max-width:56.25em) {
+        margin-top: -3rem;
+    }
+    @media(max-width:37.5em) {
+        margin-top: -2.5rem;
+    }
+    @media(min-width:112.5em) {
+        margin-top: -2.5rem;
+    }  
+}
+
+.animationForHr {
+    animation: moveInVisibility 1s;
+}
+
+.picBetweenLines {
+    position: relative;
+    left: 36%;
+    margin-top: -1.5rem;
+    @media(min-width:112.5em) {
+        left: 38%;
+    }
+    @media(max-width:75em) {
+        left: 35%;
+    }
+    @media(max-width:56.25em) {
+        left: 33%;
+    }
+}
+
+button{
+    color: $extColorWhite;
+    border:$extColorWhite 1px solid;
+    border-radius: .5rem;
+    background-color:transparent;
+    font-family: 'Lucida Console', "Lucida Console", serif;
+    position: relative;
+    left: 40%;
+    top: 3%;
+    padding: 1rem;
+    animation: moveInVisibility 1s ease-out 0.75s backwards;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    &:hover {
+        transform: translateY(3px);
+        box-shadow: 0 2rem 3rem rgba(0, 0, 0, .2);
+    }
+    &:active {
+        transform: translateY(1px);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+    }
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+       transform: translateX(0);
+    }
+}
+
+@keyframes moveInVisibility {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

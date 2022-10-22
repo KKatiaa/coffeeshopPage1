@@ -1,0 +1,28 @@
+.backImg{
+    background-image: url(paper.png);
+}
+
+.backImgSmall{
+    background-image: url(Rectangle.png);
+    width: 200px;
+}
+
+.backImgSmall h4 {
+    text-align: right;
+    margin: 8%;
+}
+
+img {
+    margin-left: -120px;
+}
+
+.title{
+    font-family: 'Lucida Console', "Lucida Console", serif;
+    padding: 5%;
+}
+
+.goods{
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 5%;
+}
